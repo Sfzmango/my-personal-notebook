@@ -1,14 +1,22 @@
 {
-  "name": "note-taker",
+  "name": "my-personal-notebook",
   "version": "1.0.0",
-  "description": "",
+  "description": "A program to help the user take notes",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Maung Htike",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
-  }
+    "express": "^4.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sfzmango/my-personal-notebook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sfzmango/my-personal-notebook/issues"
+  },
+  "homepage": "https://github.com/Sfzmango/my-personal-notebook#readme"
 }
