@@ -31,8 +31,11 @@ app.get("/api/notes", function (req, res) {
 });
 
 // redirect 404
-//app.get()
-
+app.get("*", function (req, res) {
+    console.log("Incorrect URL, redirecting to home page...")
+    res.sendFile(path.join(__dirname, "./public/index.html"));
+    console.log("Sent back to home page.")
+})
 
 // ~~~~~~~~"__dirname + ~, post routes ~~~~~~~~~
 app.post("/api/notes", function (req, res) {
