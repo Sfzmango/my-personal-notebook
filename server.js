@@ -8,10 +8,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// routes
+// ~~~~~~~~~ routes ~~~~~~~~~
+// home page
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "./public/index.html"))
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
+
+// notes page
+app.get("/notes", function (req, res) {
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
+})
 
 //starts the server
 app.listen(PORT, function () {
