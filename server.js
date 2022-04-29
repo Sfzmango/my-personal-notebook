@@ -67,9 +67,6 @@ app.post("/api/notes", function (req, res) {
                     if (err) {
                         console.error(err);
                     }
-                    else {
-                        console.log("Sucessfully added a new note");
-                    };
                 });
             };
         });
@@ -87,7 +84,39 @@ app.post("/api/notes", function (req, res) {
     }
 });
 
+// deletes note
+app.delete("/api/notes/:id", function (req, res) {
+    res.send("DELETE Request called");
 
+    // grabs id from deleted note
+    let queryId = req.params.id;
+    console.log("Note id: ", queryId);
+
+    fs.readFile("./db/db.json", "utf8", function (err, data) {
+        if (err) {
+            console.error(err);
+        }
+        else {
+            // parses db.json
+            const parsedNotes = JSON.parse(data);
+
+            // filters out the selected note
+            var filteredParsedNotes = parsedNotes.filter(function (notes) {
+                return notes.id !== queryId;
+            });
+
+            // rewrites saved notes after filter
+            fs.writeFile("./db/db.json", JSON.stringify(filteredParsedNotes, null, 4), function (err) {
+                if (err) {
+                    console.error(err);
+                }
+                else {
+                    console.log("Sucessfully deleted note.");
+                };
+            });
+        };
+    });
+})
 
 //starts the server
 app.listen(PORT, function () {
